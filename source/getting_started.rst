@@ -21,6 +21,37 @@ Once complete, diyHue is installed and running. It will also automatically start
 
     sudo systemctl [start/stop/restart] hue-emulator.service
 
+Automatic OpenWrt Install
+~~~~~~~~~~~~~~~~~
+
+Run the first following command::
+
+    opkg update && opkg install wget ca-bundle
+
+You have to change to the temporary directory::
+    
+    cd /tmp
+    
+It is also necessary to change 3 lines of code from port 80 to 82::
+    
+    nano /etc/config/uhttpd
+list listen_http    
+
+list listen_http
+
+
+and also:
+
+    nano /etc/lighttpd/lighttpd.conf
+server.port
+
+
+Just run the following command::
+
+    wget --no-check-certificate https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_openwrt.sh && sh easy_openwrt.sh
+
+The installation in OpenWrt needs a change in the configuration file of the graphical interface of luci since it runs in port 80, it must be fitted to port 82 (otherwise it does not work). Therefore to enter the OpenWrt configuration you must access: 192.168.8.1:82/cgi-bin/luci
+
 Manual install
 ~~~~~~~~~~~~~~
 
