@@ -26,7 +26,7 @@ Automatic OpenWrt Install
 
 Run the first following command::
 
-    opkg update && opkg install wget ca-bundle
+    opkg update && opkg install wget ca-bundle nano
 
 You have to change to the temporary directory::
     
