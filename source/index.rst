@@ -13,8 +13,8 @@ Welcome to diyHue's documentation!
     getting_started
     configuration
     lights/index
-    alarm
-    sensors
+    AddFuncts/index
+    faq
 .. refs/modules
 
 
