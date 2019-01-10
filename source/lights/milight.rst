@@ -10,7 +10,7 @@ Import MiLight lights
 Open ``http://{bridgeIP}/milight``, complete the form and click Save. You need to repeat this step for every light as there is no way to retrieve the list of lights from the MiLight hub.
 
 Convert MiLight bulbs to Wi-Fi
------------------------------
+------------------------------
 
 It is also possible to convert MiLight bulbs to WiFi using any ESP8266 module.
 I have successfully converted one RGB-CCT bulb with an ESP-12S module (picture available) in less than 30 minutes.
