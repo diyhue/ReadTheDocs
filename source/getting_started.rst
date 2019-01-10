@@ -7,6 +7,8 @@ Please note that although running diyHue on Windows is theoretically possible, m
 
 It is best to have at least one compatible light ready in order to setup and test the system with.
 
+This line is a test to check the build!!
+
 Host Install
 ------------
 
