@@ -86,7 +86,7 @@ OpenWrt Install
 
 First, run following command::
 
-    opkg update && opkg install wget ca-bundle
+    opkg update && opkg install wget ca-bundle nano
 
 You will need to change to the temporary directory::
 
@@ -125,3 +125,7 @@ Finally, run the following command to run the install::
     wget --no-check-certificate https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_openwrt.sh && sh easy_openwrt.sh
 
 The installation in OpenWrt requires a change to the configuration file for the GUI of luci since it runs on port 80 by default, and diyHue must run on port 80, so it was changed to port 82 following the instructions above. Therefore to enter the OpenWrt configuration you must access: ``http://192.168.8.1:82/cgi-bin/luci`` instead.
+
+DEMO ::
+
+https://youtu.be/JL5JlRtZFKY
