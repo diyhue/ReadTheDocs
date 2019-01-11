@@ -36,7 +36,7 @@ Automatic install
 
 Just run the following command to install::
 
-    curl -s https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_install.sh | sudo bash /dev/stdin`
+    curl -s https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_install.sh | sudo bash /dev/stdin
 
 
 Once complete, diyHue is installed and running. It will also automatically start on boot. diyHue can also be stopped, started and restarted with the following command::
