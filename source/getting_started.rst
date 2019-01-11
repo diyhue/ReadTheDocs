@@ -126,6 +126,11 @@ Finally, run the following command to run the install::
 
 The installation in OpenWrt requires a change to the configuration file for the GUI of luci since it runs on port 80 by default, and diyHue must run on port 80, so it was changed to port 82 following the instructions above. Therefore to enter the OpenWrt configuration you must access: ``http://192.168.8.1:82/cgi-bin/luci`` instead.
 
-DEMO ::
+Demo
+~~~~
 
-https://youtu.be/JL5JlRtZFKY
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/embed/JL5JlRtZFKY" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
