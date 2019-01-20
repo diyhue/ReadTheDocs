@@ -14,6 +14,7 @@ Welcome to diyHue's documentation!
     configuration
     lights/index
     AddFuncts/index
+    uninstall
     faq
 .. refs/modules
 
