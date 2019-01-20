@@ -3,20 +3,20 @@ Uninstall
 
 Why on earth would you want to uninstall diyHue! All joking aside, uninstall is super easy if you need a fresh install, your moving over to new hardware or maybe diyHue just isnt for you.
 
-Docker Install
---------------
+Docker Uninstall
+----------------
 
 You can easily remove the diyHue docker container and image with one command::
 
     sudo docker rm diyHue && sudo docker rmi diyhue/core
 
-Host Install
-------------
+Host Uninstall
+--------------
 
-Automatic install
-~~~~~~~~~~~~~~~~~
+Automatic Uninstall
+~~~~~~~~~~~~~~~~~~~
 
-Just run the following command to uninstall::
+If you used the automatic install method, just run the following command to uninstall::
 
     curl -s https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_uninstall.sh | sudo bash /dev/stdin
 
