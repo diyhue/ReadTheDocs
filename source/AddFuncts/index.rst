@@ -9,3 +9,4 @@ Additional Functions
     sensors
     entertainment
     debug
+    homekit
