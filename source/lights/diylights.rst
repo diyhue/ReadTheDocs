@@ -39,6 +39,8 @@ All lights have an internal web GUI that can be accesses with any browser and of
 Flashing Firmware
 -----------------
 
+In the new version is mandatory add SPIFFS storage to the ESP module. Try to choose the maximum possible size. For NodeMcu/Wemos D1 mini that have 4Mb of flash select 4M with 3M SPIFFS. You will know if the SPIFFS storage is properly set by looking at wifi manager broadcast SSID, if is in format ESPxxxxx then you must try different SPiFFS option. Future upgrades can be performed manually by exporting the compiled binary file from Arduino and upload it using any browser by accessing /update http location of the light.
+
 Neopixels
 ~~~~~~~~~
 
