@@ -1,7 +1,7 @@
 Getting Started
 ===============
 
-Setup is very quick and easy with two main installation methods currently supported. diyHue can be installed eaither directly on the host machine, or via a docker image. Currently, we reccomend installation via Docker as it's much easier to maintain, update and modify!
+Setup is very quick and easy with two main installation methods currently supported. diyHue can be installed eaither directly on the host machine, or via a docker image. Currently, we recommend installation via Docker as it's much easier to maintain, update and modify!
 
 Please note that although running diyHue on Windows is theoretically possible, many scripts and functions rely on Linux commands. As such, using Windows is not recommended! Installation on OpenWrt is also supported.
 
