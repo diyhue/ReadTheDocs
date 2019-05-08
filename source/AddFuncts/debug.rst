@@ -1,3 +1,5 @@
+.. _debug:
+
 Enable debug mode
 =================
 
