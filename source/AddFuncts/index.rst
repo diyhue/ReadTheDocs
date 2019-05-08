@@ -10,3 +10,4 @@ Additional Functions
     entertainment
     debug
     homekit
+    CMDArgs
