@@ -10,4 +10,5 @@ Additional Functions
     entertainment
     debug
     homekit
+    domoticz
     CMDArgs
