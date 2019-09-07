@@ -33,6 +33,8 @@ Host Install
 
 When installing diyHue directly on the host, you have two installation methods available. An easy automatic installation script or the commands to install it manually. The automatic install is highly recommended and is kept most up to date.
 
+Please note, if you are installing diyhue on a raspberry pi, debian buster is not currently supported!
+
 Automatic install
 ~~~~~~~~~~~~~~~~~
 
