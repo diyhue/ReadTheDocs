@@ -22,7 +22,7 @@ Docker install
 
 Add the following environment variable to your docker run command. This can be set to `true` or `false` to turn debug on or off. ::
 
-    -e "DEGUB=true"
+    -e "DEBUG=true"
 
 HTTPS certificate check
 -----------------------
