@@ -13,7 +13,7 @@ To pair a new device to diyHue, first head to ``http://{IP_ADDRESS}/hue/linkbutt
 Configuration File
 ------------------
 
-The entire configuration is saved in the ``config.json`` file. Changes to the bridge are saved in real time or every hour automatically. In case of state change of lights or sensors the configuration is not saved to avoid extensive writes to the SD card on Raspberry Pi's. If you want to save the configuration manually, you can do so by accessing ``http://{emualtor ip}/save``. If you want to manually edit the configuration file to change any king of resource, I recommend backing up the file first. In case the configuration file is corrupted, you can look for backups that are done automatically every Sunday night.
+The entire configuration is saved in the ``config.json`` file. Changes to the bridge are saved in real time or every hour automatically. In case of state change of lights or sensors the configuration is not saved to avoid extensive writes to the SD card on Raspberry Pi's. If you want to save the configuration manually, you can do so by accessing ``http://{emualtor ip}/save``. If you want to manually edit the configuration file to change any kind of resource, I recommend backing up the file first. In case the configuration file is corrupted, you can look for backups that are done automatically every Sunday night.
 
 Adding lights
 -------------
