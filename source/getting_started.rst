@@ -135,7 +135,7 @@ Run the following command to update::
 
     cd /tmp && wget --no-check-certificate https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/update_openwrt.sh && sh update_openwrt.sh
 
-At the end of the system it restarts automatically.
+After the update has finished, the system will restart automatically.
 
 Demo
 ~~~~
