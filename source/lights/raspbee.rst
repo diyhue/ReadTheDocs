@@ -11,6 +11,7 @@ ZigBee Devices With Built In Support
 * Trandri Remote
 * Tradfri Wireless Dimmer
 * Tradfri Motion Sensor
+* Tradfri On/Off Switch
 * Xiaomi Aquara Motion Sensor
 
 \*Other devices can still be manually configured to perform actions with custom Hue rules
