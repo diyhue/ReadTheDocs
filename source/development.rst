@@ -27,19 +27,19 @@ If you already had a fork, make sure it's in sync with the master branch.
 Repository content
 ------------------
 
-- `.build/` - build requirements
-  - `select.sh` - Script to move the correct coap client and entertainment service for the target platform, used in docker.
-- `.github/` - github specific files (workflows / issue templates)
-- `BridgeEmulator/` - The actual bridge emulator
-  - `functions/` - functions used in the bridge
-  - `protocols/` - Light connections (mqtt, esphome, tasmota,...)
-  - `web-ui-src/` - The webinterface (unpackaged)
-  - `web-ui/` - Webinterface packaged
-  - `HueEmulator3.py` - The main executable
-  - `coap-client-*` - Pre-compiled [coap client](http://manpages.ubuntu.com/manpages/bionic/man5/coap-client.5.html) for connection with Ikea Tradfri bridge
-  - `entertainment-*` - pre-compiled entertainment service. Used to setup the entertainment service for the hue bridge.
-  - `ssl_server2_diyhue.c` - Source of entertainment service.
-- `RemoteApi/` - Server used to create a remote connection.
+- **.build/** - build requirements
+  - **select.sh** - Script to move the correct coap client and entertainment service for the target platform, used in docker.
+- **.github/** - github specific files (workflows / issue templates)
+- **BridgeEmulator/** - The actual bridge emulator
+  - **functions/** - functions used in the bridge
+  - **protocols/** - Light connections (mqtt, esphome, tasmota,...)
+  - **web-ui-src/** - The webinterface (unpackaged)
+  - **web-ui/** - Webinterface packaged
+  - **HueEmulator3.py** - The main executable
+  - **coap-client-** - Pre-compiled [coap client](http://manpages.ubuntu.com/manpages/bionic/man5/coap-client.5.html) for connection with Ikea Tradfri bridge
+  - **entertainment-** - pre-compiled entertainment service. Used to setup the entertainment service for the hue bridge.
+  - **ssl_server2_diyhue.c** - Source of entertainment service.
+- **RemoteApi/** - Server used to create a remote connection.
 
 Docker development
 ------------------
@@ -59,9 +59,9 @@ Build docker image
 
 The docker image for diyHue can be build for multiple architectures. Recently we added a Dockerfile that works for all (supported) architectures.
 
-- Linux 64-bit `amd64`
-- Arm (raspberry pi 3 eg.) `arm/v7`
-- Arm 64-bit (raspberry pi 3b/4 eg.) `arm64`
+- Linux 64-bit ``amd64``
+- Arm (raspberry pi 3 eg.) ``arm/v7``
+- Arm 64-bit (raspberry pi 3b/4 eg.) ``arm64``
 
 Run the following command from the root of the repository to build the image
 
@@ -76,8 +76,8 @@ Start docker image
 ------------------
 
 Once you made your changes and build the image, you'll need to run the following command to run your new image in debug mode.
-Before running change the values to your needs, so make sure you set the `MAC` variable to your used network card and the `IP` to the IP of your machine.
-Also change the folder `/Users/you/diyhue/export` to your own configuration folder.
+Before running change the values to your needs, so make sure you set the ``MAC`` variable to your used network card and the ``IP`` to the IP of your machine.
+Also change the folder ``/Users/you/diyhue/export`` to your own configuration folder.
 
 .. code-block:: Bash
     # Stop and remove current dev container
