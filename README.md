@@ -1,4 +1,5 @@
 # diyHue Read The Docs
+
 [![Build Status](https://readthedocs.org/projects/diyhue/badge/?version=latest)](https://readthedocs.org/projects/diyhue/)
 
 Documentation for diyHue
