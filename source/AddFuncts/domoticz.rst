@@ -6,47 +6,59 @@ As there is no discover process provided by domotics, they must be added manuall
 
 Add a new light(s)
 -------------------
-1. Stop the hue-emulator service::
+1. Stop the hue-emulator service
 
-    sudo systemctl stop hue-emulator
+``sudo systemctl stop hue-emulator``
 
-2. Save ''config.json''::
-    sudo cp /opt/hue-emulator/config.json /opt/hue-emulator/config.json.bak
+2. Save ''config.json''
 
-3. Edit config.json::
+``sudo cp /opt/hue-emulator/config.json /opt/hue-emulator/config.json.bak``
 
-    sudo nano /opt/hue-emulator/config.json
+3. Edit config.json
 
-- Add light adress::
+``sudo nano /opt/hue-emulator/config.json``
 
-    "lights_address": {
-        "3": {
-            "ip": "192.168.1.100:8080",
-            "light_id": "281",
-            "protocol": "domoticz"
-        },
-    },
+   - Add light adress
 
-''ip'' is the Domoticz host
-''light_id'' is the light/switch IDX
-''"protocol": "domoticz"'' allow diyhue to format the correct request
+.. code-block:: JSON
 
-- Add light details for hue app::
-
-  "lights": {
-        "3": {
-            "manufacturername": "domoticz",
-            "name": "Eettafel",
-            "state": {
-                "alert": "none",
-                "on": true,
-                "reachable": true
+    {
+        "lights_address": {
+            "3": {
+                "ip": "192.168.1.100:8080",
+                "light_id": "281",
+                "protocol": "domoticz"
             },
-            "swversion": "V1.04.12",
-            "type": "On/Off plug-in unit",
-            "uniqueid": "xx:xx:xx:xx:xx:xx:xx:xx-xx"
         },
+    }
 
-4. Restart the hue-emulator service::
+``ip`` is the Domoticz host
 
-    sudo systemctl start hue-emulator
+``light_id`` is the light/switch IDX
+
+``"protocol": "domoticz"`` allow diyhue to format the correct request
+
+   - Add light details for hue app
+
+.. code-block:: JSON
+
+    {
+        "lights": {
+            "3": {
+                "manufacturername": "domoticz",
+                "name": "Eettafel",
+                "state": {
+                    "alert": "none",
+                    "on": true,
+                    "reachable": true
+                },
+                "swversion": "V1.04.12",
+                "type": "On/Off plug-in unit",
+                "uniqueid": "xx:xx:xx:xx:xx:xx:xx:xx-xx"
+            },
+        }
+    }
+
+4. Restart the hue-emulator service
+
+``sudo systemctl start hue-emulator``

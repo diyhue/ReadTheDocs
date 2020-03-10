@@ -23,7 +23,6 @@ Deconz installation
 * Follow the steps from here: https://github.com/dresden-elektronik/deconz-rest-plugin for the deconz.deb package download and installation (no need to install dev package or compile the code)
 
 * Edit the Deconz systemd script to bind on port 8080: ``sudo nano /lib/systemd/system/deconz.service`` replace ``--http-port=80`` with ``--http-port=8080 --upnp=0 --ws-port=8081`` or you can use the following command:
-::
 
   sed -i 's/ --http-port=80$/ --http-port=8080 --ws-port=8081 --upnp=0/' /lib/systemd/system/deconz.service
 
