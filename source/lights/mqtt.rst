@@ -1,7 +1,7 @@
 MQTT - zigbee2mqtt
 ==================
 
-diyHue has support for lights that are controlled over mqtt. It uses the auto discovery feature described [here](https://www.home-assistant.io/docs/mqtt/discovery/).
+diyHue has support for lights that are controlled over mqtt. It uses the auto discovery feature described `here <https://www.home-assistant.io/docs/mqtt/discovery/>`_.
 This emulator connects directly to mqtt (after you set the correct parameters), and subscribes to the defined auto discovery prefix.
 
 You'll still need to look for lights (in the app), but any lights that emit an auto discovery message are added once you search for lights.
@@ -18,6 +18,7 @@ If you're using **docker** to run diyHue, make sure you **stop the container** b
 This is only a small portion of the config, but you should look for the ``emulator`` => ``mqtt`` section. And fill in the correct values.
 
 .. code-block:: JSON
+
     {
         "emulator": {
             "alarm": {
@@ -39,9 +40,11 @@ This is only a small portion of the config, but you should look for the ``emulat
 Zigbee2mqtt
 -----------
 
-[Zigbee2mqtt](https://zigbee2mqtt.io) is a really nice application that uses a (pretty) cheap zigbee device and lets you control it from a mqtt server. To use zigbee2mqtt with diyHue, you'll need to make sure the you turned on ``homeassistant`` in the [configuration](https://www.zigbee2mqtt.io/information/configuration.html). This will make zigbee2mqtt start sending the auto discovery messages.
+`Zigbee2mqtt <https://zigbee2mqtt.io>`_ is a really nice application that uses a (pretty) cheap zigbee device and lets you control it from a mqtt server.
+To use zigbee2mqtt with diyHue, you'll need to make sure the you turned on ``homeassistant`` in the `configuration <https://www.zigbee2mqtt.io/information/configuration.html>`_. This will make zigbee2mqtt start sending the auto discovery messages.
 
 .. code-block:: YAML
+
     homeassistant: true
 
 By using zigbee2mqtt and a compatible zigbee device together with diyHue you could replace the original bridges for zigbee lights. Hue bridge and/or TradFri.
@@ -57,23 +60,24 @@ Protocol
 Auto discovery messages look like this. Topic ``homeassistant/light/{light-id}/light/config``
 
 .. code-block:: JSON
+
     {
-    "brightness" : true,
-    "xy" : true,
-    "schema" : "json",
-    "command_topic" : "zigbee2mqtt/naam-van-lamp/set",
-    "state_topic" : "zigbee2mqtt/naam-van-lamp",
-    "json_attributes_topic" : "zigbee2mqtt/naam-van-lamp",
-    "name" : "naam-van-lamp_light",
-    "unique_id" : "0x0017xxxec5e_light_zigbee2mqtt",
-    "device" : {
-        "identifiers" : [ "zigbee2mqtt_0x0017xxxec5e" ],
-        "name" : "naam-van-lamp",
-        "sw_version" : "Zigbee2mqtt 1.11.0",
-        "model" : "Hue Bloom (7299760PH)",
-        "manufacturer" : "Philips"
-    },
-    "availability_topic" : "zigbee2mqtt/bridge/state"
+        "brightness" : true,
+        "xy" : true,
+        "schema" : "json",
+        "command_topic" : "zigbee2mqtt/naam-van-lamp/set",
+        "state_topic" : "zigbee2mqtt/naam-van-lamp",
+        "json_attributes_topic" : "zigbee2mqtt/naam-van-lamp",
+        "name" : "naam-van-lamp_light",
+        "unique_id" : "0x0017xxxec5e_light_zigbee2mqtt",
+        "device" : {
+            "identifiers" : [ "zigbee2mqtt_0x0017xxxec5e" ],
+            "name" : "naam-van-lamp",
+            "sw_version" : "Zigbee2mqtt 1.11.0",
+            "model" : "Hue Bloom (7299760PH)",
+            "manufacturer" : "Philips"
+        },
+        "availability_topic" : "zigbee2mqtt/bridge/state"
     }
 
 
@@ -82,6 +86,7 @@ diyHue subscribes to ``{discoveryPrefix}/light/+/light/config`` and uses the ``b
 Sample state message, topic: ``zigbee2mqtt/naam-van-lamp``
 
 .. code-block:: JSON
+
     {
         "state" : "ON",
         "brightness" : 200,
@@ -94,6 +99,7 @@ Sample state message, topic: ``zigbee2mqtt/naam-van-lamp``
 The light is controlled by sending a message like the state message to the ``command_topic`` like ``zigbee2mqtt/naam-van-lamp/set``.
 
 .. code-block:: JSON
+
     {
         "state" : "ON",
         "brightness" : 200,
@@ -104,4 +110,4 @@ The light is controlled by sending a message like the state message to the ``com
         }
     }
 
-MQTT lights are only available since [this pr](https://github.com/diyhue/diyHue/pull/350), so no support for sensors yet. But you can always contribute to this feature.
+MQTT lights are only available since `this pr <https://github.com/diyhue/diyHue/pull/350>`_, so no support for sensors yet. But you can always contribute to this feature.

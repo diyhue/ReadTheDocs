@@ -3,11 +3,12 @@ diyHue - Development
 
 diyHue is an application written in python 3. To do any development you'll need some basic programming knowledge.
 
-First you create a fork of diyhue on github. [Create diyhue fork](https://github.com/diyHue/diyHue/fork).
+First you create a fork of diyhue on github. `Create diyhue fork <https://github.com/diyHue/diyHue/fork>`_.
 
 If you already had a fork, make sure it's in sync with the master branch.
 
 .. code-block:: Bash
+
     # Add the remote, call it "upstream": (only once)
     git remote add upstream https://github.com/diyHue/diyHue.git
 
@@ -27,19 +28,23 @@ If you already had a fork, make sure it's in sync with the master branch.
 Repository content
 ------------------
 
-- **.build/** - build requirements
-  - **select.sh** - Script to move the correct coap client and entertainment service for the target platform, used in docker.
-- **.github/** - github specific files (workflows / issue templates)
-- **BridgeEmulator/** - The actual bridge emulator
-  - **functions/** - functions used in the bridge
-  - **protocols/** - Light connections (mqtt, esphome, tasmota,...)
-  - **web-ui-src/** - The webinterface (unpackaged)
-  - **web-ui/** - Webinterface packaged
-  - **HueEmulator3.py** - The main executable
-  - **coap-client-** - Pre-compiled [coap client](http://manpages.ubuntu.com/manpages/bionic/man5/coap-client.5.html) for connection with Ikea Tradfri bridge
-  - **entertainment-** - pre-compiled entertainment service. Used to setup the entertainment service for the hue bridge.
-  - **ssl_server2_diyhue.c** - Source of entertainment service.
-- **RemoteApi/** - Server used to create a remote connection.
+* ``.build/`` - build requirements
+
+  * ``select.sh`` - Script to move the correct coap client and entertainment service for the target platform, used in docker.
+
+* ``.github/`` - github specific files (workflows / issue templates)
+* ``BridgeEmulator/`` - The actual bridge emulator
+
+  * ``functions/`` - functions used in the bridge
+  * ``protocols/`` - Light connections (mqtt, esphome, tasmota,...)
+  * ``web-ui-src/`` - The webinterface (unpackaged)
+  * ``web-ui/`` - Webinterface packaged
+  * ``HueEmulator3.py`` - The main executable
+  * ``coap-client-*`` - Pre-compiled `coap client <http://manpages.ubuntu.com/manpages/bionic/man5/coap-client.5.html>`_ for connection with Ikea Tradfri bridge
+  * ``entertainment-*`` - pre-compiled entertainment service. Used to setup the entertainment service for the hue bridge.
+  * ``ssl_server2_diyhue.c`` - Source of entertainment service.
+
+* ``RemoteApi/`` - Server used to create a remote connection.
 
 Docker development
 ------------------
@@ -50,7 +55,7 @@ Requirements
 ------------
 
 - Docker (desktop), windows Docker desktop with linux containers
-- Editor like [VSCode](https://code.visualstudio.com/)
+- Editor like `VSCode <https://code.visualstudio.com/>`_
 - A folder to put the configuration
 - You cannot have the bridge running on this PC, because of the required ports
 
@@ -66,7 +71,8 @@ The docker image for diyHue can be build for multiple architectures. Recently we
 Run the following command from the root of the repository to build the image
 
 .. code-block:: Bash
-    docker build -t diyhue:development -f ./.build/Dockerfile .
+
+    docker build -t diyhue:development -f ./.build/Dockerfile --build-args TARGETPLATFORM=amd64 .
 
     # Or the following if you enabled buildx for multi architecture images
     docker build -t diyhue:development -f ./.build/Dockerfile --load .
@@ -80,6 +86,7 @@ Before running change the values to your needs, so make sure you set the ``MAC``
 Also change the folder ``/Users/you/diyhue/export`` to your own configuration folder.
 
 .. code-block:: Bash
+
     # Stop and remove current dev container
     docker stop diyhue-dev && docker rm diyhue-dev
 
@@ -104,5 +111,10 @@ If you want to publish the multiarchitecture image of diyHue, you'll need to set
 Caution, the first time it has to download a lot of packages for 3 platforms. This will take some time. After the first time the requirements are cached and building should be a lot faster.
 
 .. code-block:: Bash
-    docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t diyhue/core:development -f .build/Dockerfile --push .
+
+    docker buildx build \
+      --platform linux/amd64,linux/arm64,linux/arm/v7 \
+      -t diyhue/core:development \
+      -f .build/Dockerfile \
+      --push .
 
