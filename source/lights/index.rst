@@ -11,3 +11,4 @@ Lights
     hue
     yeelight
     raspbee
+    mqtt
