@@ -1,7 +1,13 @@
 Alarm
 =====
 
-It is possible to receive email notifications when one motion sensor is triggered while the alarm is active.
-To configure the alarm you must first edit the file config.json and add your SMTP credentials.
-On first execution HueEmulator.py will send a test email and if this is successfully setup a new virtual light named "Alarm".
-You will need to go in Hue application => Settings => Lights and from there you can activate/deactivate the alarm by touching the light Alarm.
+It is possible to receive email notifications when a motion sensor is triggered while the alarm is active. At this moment the alarm can be configured manually by editing the file /opt/hue-emulator/config.json while the service is stopped. You need to set just your email address and to switch the "on" value between true or false to enable / disable the alarm.
+
+
+"emulator": {
+    "alarm": {
+        "email": "example@gmail.com",
+        "lasttriggered": 1585935069,
+        "on": false
+    },
+
