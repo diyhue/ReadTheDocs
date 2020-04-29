@@ -19,3 +19,12 @@ Adding lights
 -------------
 
 Depending on which lights you plan to use, the setup method will vary. For detailed setup instructions, please chose the correct type of light you wish to setup from the menu on the left.
+
+
+Reset Linkbutton Password
+-------------
+
+If you forgot the changed Password, edit the ``linkbutton_auth`` Field in ``config.json`` to the default Hash ``SHVlOkh1ZQ==``.
+This will reset the Password to ``Hue:Hue``
+
+
