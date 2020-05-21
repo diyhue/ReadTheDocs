@@ -1,7 +1,7 @@
 ESPHome
 ========
 
-ESPHome currently only works with a light node at a time (one light control per ESPHome device). This protocol may even work with switches that are mapped as lights in ESPHome, making it very flexible and ideal for a large variety of devices.
+ESPHome currently only works with one light per ESPHome device. This protocol will even work with switches that are mapped as lights in ESPHome, making it very flexible and ideal for a large variety of devices.
 
 Supported modes of operation are:
 
@@ -10,6 +10,8 @@ Supported modes of operation are:
 * RGB
 * Dimmable
 * Toggle
+
+To add the device to diyHue, simply configure it using the information below and search for lights. The devices should be automatically imported into diyHue with the correct information.
 
 General Configuration
 ---------
