@@ -9,6 +9,7 @@ Lights
     ikea
     milight
     hue
+    esphome
     yeelight
     raspbee
     mqtt
