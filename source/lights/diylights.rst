@@ -55,8 +55,8 @@ The data pin of the LED's must be connected to RX pin of the ESP8266 board. Make
 Generic lights
 ~~~~~~~~~~~~~~
 
-If your device is factory ESP8266 based, then you must specify the pins used in that devices before compiling the code.
-If you don't know what pins are used or what color is controlled on a pin then try random pins with OTA firmware upgrades until you find the correct pins.
+If your device is factory ESP8266 based, then you must specify the pins used by that device in setting page of the light web gui.
+If you don't know what pins are used or what color is controlled on a pin then try random pins.
 I recommend using the MiLight FUT15 bulbs converted to ESP-12S because of it's high brightness and good color reproduction.
 
 .. figure:: /_static/images/MiLight_RGB_CCT_converted_to_ESP-12S.jpg
@@ -74,24 +74,44 @@ Note: The app will often say no lights found but the lights will then appear a f
 Lights API
 ----------
 
-The lights use the same Hue protocol however, the values are not sent in json, like in the Hue protocol, but directly in GET request::
+The lights use the same Hue protocol however, for sketches with multiple lights the state of every light is added in a root key that identify the light id.
 
-  "http://{light ip}/set?light=1&r=0&g=60&b=255&transitiontime=2000"
-  "http://{light ip}/discover"
+**detection url**: ``http://{light ip}/detect``
+
+sample output:
+
+.. code-block:: JSON
+
+    {"name":"Living ","protocol":"native_single","modelid":"LCT015","type":"rgb-cct","mac":"A0:20:A6:2C:FB:26","version":2}
+
+**API for light control or state read**
+
+ http path: ``http://{light ip}/state``
+
+ http mode: GET for read, PUT to set a new state with json body
+ 
+ Example json body for devices with single light (generic RGB, generic RGBW, generic RGB-CCT):  
+ ``{"on":true,"bri":144,"xy":[0.53, 0,21]}``
+ 
+ Example json body for devices with multiple lights:  
+ ``{1: {"on":true,"bri":144,"xy":[0.53, 0,21]}, 2: {"on":true,"bri":144,"ct":370}, 3: {"on":false}}``
+ to read the state of a light is required to specify the light id in the url ``http://{light ip}/state?light=2``.
+ If not light is specified the state of light id 1 will be returned.
+
 
 Arguments that can be passed in the URL:
 
-* "on": 1 to set light on, 0 to set the light off.
-* "r", "g", "b": Set the light color using RGB values between 0 and 255.
-* "x" and "y": Values between 0.0 and 1.0 to set the light color using a CIE chart.
-* "ct": Value between 153 (max warm white) and 500 (max could white) http://en.wikipedia.org/wiki/Mired
-* hue: Value between 0 and 65535, representing the hue of the light.
-* sat: Set the saturation of the light. 255 is the most saturated and 0 is the least saturated.
-* bri: Set the brightness of the light, 255 is the maximum brightness, 1 is the minimum, 0 will turn the light on to previous state
-* transitiontime: Duration of the transition from the light’s current state to the new state. The default is 4 representing 0.4 seconds.
-* bri_inc: Increase or decrease the brightness with a specified value
+* ``on``: 1 to set light on, 0 to set the light off.
+* ``r``, ``g``, ``b``: Set the light color using RGB values between 0 and 255.
+* ``x`` and ``y``: Values between 0.0 and 1.0 to set the light color using a CIE chart.
+* ``ct``: Value between 153 (max warm white) and 500 (max could white) http://en.wikipedia.org/wiki/Mired
+* ``hue``: Value between 0 and 65535, representing the hue of the light.
+* ``sat``: Set the saturation of the light. 255 is the most saturated and 0 is the least saturated.
+* ``bri``: Set the brightness of the light, 255 is the maximum brightness, 1 is the minimum, 0 will turn the light on to previous state
+* ``transitiontime``: Duration of the transition from the light’s current state to the new state. The default is 4 representing 0.4 seconds.
+* ``bri_inc``: Increase or decrease the brightness with a specified value
 
 Firmware upgrade
 ----------------
 
-You can upgrade the firmware very easily with Adruino OTA.
+You can upgrade the firmware very easily by saving the binary file from Arduino to local disk and uploading it using `/update` page of the light web ui

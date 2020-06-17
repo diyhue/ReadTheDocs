@@ -16,6 +16,7 @@ Welcome to diyHue's documentation!
     AddFuncts/index
     uninstall
     faq
+    development
 .. refs/modules
 
 

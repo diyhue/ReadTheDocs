@@ -14,7 +14,7 @@ Currently the docker image has been tested with x86 systems and ARMv7 systems (R
 
 To run the container with the host network mode::
 
-    docker run -d --name "diyHue" --restart="always" --network="host" -v '/mnt/hue-emulator/export/':'/opt/hue-emulator/export/':'rw' diyhue/core:latest
+    docker run -d --name "diyHue" --restart="always" --network="host" -e MAC='XX:XX:XX:XX:XX:XX' -v '/mnt/hue-emulator/export/':'/opt/hue-emulator/export/':'rw' diyhue/core:latest
 
 When running with the bridge network mode you must provide the IP and MAC address of the host device. Four ports are also opened to the container. These port mappings must not be changed as the hue ecosystem expects to communicate over specific ports.
 
