@@ -30,7 +30,14 @@ Deconz installation
   This is done by clicking "Open network" in settings and then reset the devices. Don't configure any device in deconz.
 * Start hue emulator (you should see in the logs the import of all zigbee devices)
 * Click "Unlock Gateway" in the Deconz settings to allow hue emulator to register, then open ``http://{hue emulator ip}/deconz`` to automatically register the bridge emulator with Deconz.
-  In order to configure IKEA switches you must first configure the rooms
+  In order to configure IKEA switches you must first configure the rooms.
+  
+  Updates to the Deconz service made in your OS for any reason will most likely overwrite the changes made to the deconz systemctl service file.  To prevent that from happening, you can divert updates to that file.  If installing in Raspian/Ubuntu/Debian, use the following command to divert updates to that file to another location:
+  
+    sudo dpkg-divert --package deconz --add --rename --divert /home/<insert_username_here>/new_deconz.service /lib/systemd/system/deconz.service
+  
+  This will divert the new service file to your home directory under the filename "new_deconz.service".  Then you can determine if there is anything that has changed.
+  
 
 Sensors and Switches Configuration
 ----------------------------------
