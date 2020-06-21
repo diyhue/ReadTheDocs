@@ -15,7 +15,7 @@ You will need to start the bridge once (this will generate/update the config) an
 
 If you're using **docker** to run diyHue, make sure you **stop the container** before changing the config file.
 
-This is only a small portion of the config, but you should look for the ``emulator`` => ``mqtt`` section. And fill in the correct values.
+This is only a small portion of the config, but you should look for the ``emulator`` => ``mqtt`` section. It should look like this:
 
 .. code-block:: JSON
 
@@ -36,6 +36,13 @@ This is only a small portion of the config, but you should look for the ``emulat
             }
         },
     }
+
+Now fill in the correct values:
+
+* ``discoveryprefix``: don't change
+* ``enabled``: **"true"** (if ``mqttServer`` isn't set correctly, hue-emulator will not be reachable)
+* ``mqttUser``, ``mqttPassword`` and ``mqttPort``: Match the setting on the mqtt server. Default values are already filled in.
+* ``mqttServer``: Enter the server IP, eg. **"127.0.0.1"** or **"localhost"** if the server runs on the same machine.
 
 Zigbee2mqtt
 -----------
