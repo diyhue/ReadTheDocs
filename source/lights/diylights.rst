@@ -46,7 +46,7 @@ Neopixels
 
 Before compiling the code, you must set the ``lightsCount`` and ``pixelCount`` variables.
 ``lightsCount`` is the number of virtual lights to create from your NeoPixel strip.
-``pixelCount`` is the number of NeoPixel LED's per light. ``transitionLeds`` represents the number of LEDs used for smooth transitions of colours between lights.
+``pixelCount`` is the total number of NeoPixel LED's in the connected strip . ``transitionLeds`` represents the number of LEDs used for smooth transitions of colours between lights.
 I recommend using atleast 3 lights, one light at every 20 - 50 LED's so you can enjoy Hue scenes and Hue Entertainment.
 The data pin of the LED's must be connected to RX pin of the ESP8266 board. Make sure to disconnect this when uploading or it could fail.
 
