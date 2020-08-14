@@ -39,9 +39,9 @@ The mount directory ``/mnt/hue-emulator/export/`` can be changed to any director
 
 To update the container:
 
-Delete the existing container (Don't worry! This won't delete your configuration as this is stored in the mounted directory.)::
+* Delete the existing container (Don't worry! This won't delete your configuration as this is stored in the mounted directory.):
     docker rm -f diyHue
-Recreate the container using the commands above.
+* Recreate the container using the commands above.
 
 
 The container will auto-start on host boot or a container crash.
