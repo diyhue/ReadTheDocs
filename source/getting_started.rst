@@ -45,8 +45,9 @@ To update the container:
 
     docker rm -f diyHue
 
-* Recreate the container using the commands above.
+* Recreate the container using the commands above, changing the tag if necessary.
 
+Alternatively, you may utilize the docker-compose file found in the .build directory of the repository to setup diyHue. Once copied, it may be started using ``docker-compose up`` and stopped using ``docker-compose down``. Updates can be achieved by changing the tag in the configuration and restarting ``docker-compose restart``.
 
 The container will auto-start on host boot or a container crash.
 
