@@ -41,7 +41,7 @@ To update the container:
 
 * Delete the existing container (Don't worry! This won't delete your configuration as this is stored in the mounted directory.)
 
-.. code-block:: 
+.. code-block:: bash
 
     docker rm -f diyHue
 

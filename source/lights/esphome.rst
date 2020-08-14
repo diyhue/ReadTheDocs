@@ -34,6 +34,26 @@ Replace the values as follows:
 
 The alert switch will be called when the bulb is requested to be located. As it stands now, it is not ideal as it does not return the light to the original state.
 
+Entertainment Mode
+---------
+
+The configuration for entertainment mode differs from the configuration here which does not include entertainment mode. The full code can be found in the ``Lights`` repository. The primary differences are:
+
+.. code-block:: YAML
+
+  includes:
+    - diyhueasyncudp.h
+  libraries:
+    - ESPAsyncUDP@697c75a025
+
+  custom_component:
+  - lambda: |-
+      auto diyhue = new diyhueudp();
+      return {diyhue};
+
+These lines install the required library, the entertainment component, and initializes it. Additionally, be sure to copy the AsyncUDP component to the ESPHome directory. 
+
+
 RGBW
 ---------
 
