@@ -31,16 +31,16 @@ All devices must have a text sensor:
         strcat( response, WiFi.macAddress().c_str());
         strcat( response, ";");
         strcat( response, App.get_name().c_str());
-        strcat( response, ";0;0" ); // ;CT_BOOST;RGB_BOOST goes here
+        strcat( response, ";0;0" ); // ;CT_BOOST;RGB_BOOST values go here
         return { response };
       update_interval: 24h
 
 Configurable options:
 
 * ``CT_BOOST``: this value is utilized by diyHue to increase/decrease the default brightness of the CT light. Set this value to 0 to disable the feature. Must be an integer.
-* ``RGB_BOOST``: same as ct_boost except will apply for the RGB component of the light.
+* ``RGB_BOOST``: same as CT_BOOST except will apply for the RGB component of the light.
 
-**Important: ct_boost and rgb_boost must have a numeral value regardless of the bulb's capabilities. For bulbs that are dimmable and toggle, simply set these values to 0.**
+**Important: CT_BOOST and RGB_BOOST must have a numeral value regardless of the bulb's capabilities. For bulbs that are dimmable and toggle, simply set these values to 0.**
 
 The alert switch will be called when the bulb is requested to be located. As it stands now, it is not ideal as it does not return the light to the original state.
 
@@ -179,7 +179,7 @@ This is a sample configuration for a RGBW light, namely the `Feit Electric Smart
         strcat( response, WiFi.macAddress().c_str());
         strcat( response, ";");
         strcat( response, App.get_name().c_str());
-        strcat( response, ";0;0" ); //";CT-BOOST;RGB-BOOST"
+        strcat( response, ";0;0" ); // ;CT_BOOST;RGB_BOOST values go here
         return { response };
       update_interval: 24h
       
