@@ -18,19 +18,29 @@ General Configuration
 
 All devices must have a text sensor:
 
-.. code-block:: JSON
+.. code-block:: YAML
 
-  {"esphome_diyhue_light;mac_address;light_name;ct_boost;rgb_boost"}
+  text_sensor:
+    - platform: template
+      name: "light_id"
+      id: light_id
+      lambda: |-
+        char response[100];
+        memset( response, 0, 100 );
+        strcat( response, "esphome_diyhue_light;");
+        strcat( response, WiFi.macAddress().c_str());
+        strcat( response, ";");
+        strcat( response, App.get_name().c_str());
+        strcat( response, ";CT_BOOST;RGB_BOOST" ); // ;CT_BOOST;RGB_BOOST values go here; Replace with 0 to disable
+        return { response };
+      update_interval: 24h
 
-Replace the values as follows:
+Configurable options:
 
-* ``esphome_diyhue_light``: cannot be changed and must remain here to allow for proper detection of the light by diyHue
-* ``mac_address``: replace with the MAC address of the device
-* ``light_name``: replace with the name of the light
-* ``ct_boost``: this value is utilized by diyHue to increase/decrease the default brightness of the CT light. Set this value to 0 to disable the feature. Must be an integer.
-* ``rgb_boost``: same as ct_boost except will apply for the RGB component of the light.
+* ``CT_BOOST``: this value is utilized by diyHue to increase/decrease the default brightness of the CT light. Set this value to 0 to disable the feature. Must be an integer.
+* ``RGB_BOOST``: same as CT_BOOST except will apply for the RGB component of the light.
 
-**Important: ct_boost and rgb_boost must have a numeral value regardless of the bulb's capabilities. For bulbs that are dimmable and toggle, simply set these values to 0.**
+**Important: CT_BOOST and RGB_BOOST must have a numeral value regardless of the bulb's capabilities. For bulbs that are dimmable and toggle, simply set these values to 0.**
 
 The alert switch will be called when the bulb is requested to be located. As it stands now, it is not ideal as it does not return the light to the original state.
 
@@ -163,7 +173,14 @@ This is a sample configuration for a RGBW light, namely the `Feit Electric Smart
       name: "light_id"
       id: light_id
       lambda: |-
-        return {"esphome_diyhue_light;mac_address;light_name;ct_boost;rgb_boost"};
+        char response[100];
+        memset( response, 0, 100 );
+        strcat( response, "esphome_diyhue_light;");
+        strcat( response, WiFi.macAddress().c_str());
+        strcat( response, ";");
+        strcat( response, App.get_name().c_str());
+        strcat( response, ";CT_BOOST;RGB_BOOST" ); // ;CT_BOOST;RGB_BOOST values go here; Replace with 0 to disable
+        return { response };
       update_interval: 24h
       
   switch:
