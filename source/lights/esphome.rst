@@ -179,7 +179,7 @@ This is a sample configuration for a RGBW light, namely the `Feit Electric Smart
         strcat( response, WiFi.macAddress().c_str());
         strcat( response, ";");
         strcat( response, App.get_name().c_str());
-        strcat( response, ";0;0" ); // ;CT_BOOST;RGB_BOOST values go here
+        strcat( response, ";CT_BOOST;RGB_BOOST" ); // ;CT_BOOST;RGB_BOOST values go here; Replace with 0 to disable
         return { response };
       update_interval: 24h
       
