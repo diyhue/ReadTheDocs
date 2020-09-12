@@ -18,17 +18,27 @@ General Configuration
 
 All devices must have a text sensor:
 
-.. code-block:: JSON
+.. code-block:: YAML
 
-  {"esphome_diyhue_light;mac_address;light_name;ct_boost;rgb_boost"}
+text_sensor:
+  - platform: template
+    name: "light_id"
+    id: light_id
+    lambda: |-
+      char response[100];
+      memset( response, 0, 100 );
+      strcat( response, "esphome_diyhue_light;");
+      strcat( response, WiFi.macAddress().c_str());
+      strcat( response, ";");
+      strcat( response, App.get_name().c_str());
+      strcat( response, ";0;0" ); // ;CT_BOOST;RGB_BOOST goes here
+      return { response };
+    update_interval: 24h
 
-Replace the values as follows:
+Configurable options:
 
-* ``esphome_diyhue_light``: cannot be changed and must remain here to allow for proper detection of the light by diyHue
-* ``mac_address``: replace with the MAC address of the device
-* ``light_name``: replace with the name of the light
-* ``ct_boost``: this value is utilized by diyHue to increase/decrease the default brightness of the CT light. Set this value to 0 to disable the feature. Must be an integer.
-* ``rgb_boost``: same as ct_boost except will apply for the RGB component of the light.
+* ``CT_BOOST``: this value is utilized by diyHue to increase/decrease the default brightness of the CT light. Set this value to 0 to disable the feature. Must be an integer.
+* ``RGB_BOOST``: same as ct_boost except will apply for the RGB component of the light.
 
 **Important: ct_boost and rgb_boost must have a numeral value regardless of the bulb's capabilities. For bulbs that are dimmable and toggle, simply set these values to 0.**
 
@@ -158,13 +168,20 @@ This is a sample configuration for a RGBW light, namely the `Feit Electric Smart
             transition_length: 5s
             update_interval: 3s
 
-  text_sensor:
-    - platform: template
-      name: "light_id"
-      id: light_id
-      lambda: |-
-        return {"esphome_diyhue_light;mac_address;light_name;ct_boost;rgb_boost"};
-      update_interval: 24h
+text_sensor:
+  - platform: template
+    name: "light_id"
+    id: light_id
+    lambda: |-
+      char response[100];
+      memset( response, 0, 100 );
+      strcat( response, "esphome_diyhue_light;");
+      strcat( response, WiFi.macAddress().c_str());
+      strcat( response, ";");
+      strcat( response, App.get_name().c_str());
+      strcat( response, ";0;0" ); //";CT-BOOST;RGB-BOOST"
+      return { response };
+    update_interval: 24h
       
   switch:
     - platform: template
