@@ -13,3 +13,4 @@ Lights
     yeelight
     raspbee
     mqtt
+    homeassistant
