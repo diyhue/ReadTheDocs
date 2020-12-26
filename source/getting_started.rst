@@ -55,13 +55,21 @@ Host Install
 ------------
 
 When installing diyHue directly on the host, you have two installation methods available. An easy automatic installation script or the commands to install it manually. The automatic install is highly recommended and is kept most up to date.
+There are two variants for the installation, one for the master branch (stable) and another for dev (add-on tests)
 
-Automatic install
+Automatic install master (stable)
 ~~~~~~~~~~~~~~~~~
 
 Just run the following command to install::
 
     curl -s https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_install.sh | sudo bash /dev/stdin
+
+Automatic install dev (add-on test)
+~~~~~~~~~~~~~~~~~
+
+Just run the following command to install::
+
+    curl -s https://raw.githubusercontent.com/diyhue/diyHue/dev/BridgeEmulator/easy_install.sh | sudo bash /dev/stdin
 
 
 Once complete, diyHue is installed and running. It will also automatically start on boot. diyHue can also be stopped, started and restarted with the following command::
