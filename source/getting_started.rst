@@ -62,7 +62,7 @@ Automatic install
 Just run the following command to install::
 
     curl -fsSL https://get.diyhue.org -o install.sh
-    sudo sh install.sh
+    sudo bash install.sh
 .. curl -s https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_install.sh | sudo bash /dev/stdin    
 
 .. note:: 
