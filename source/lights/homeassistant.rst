@@ -10,7 +10,7 @@ For this to work you need to have a working Home Assistant setup with the Rest A
 Configuration
 -------------
 
-.. warning::
+.. note::
     Once you have completed the setup below you will need to search for lights in Hue Essentials/Hue App or you can navigate to http://diyhue_ip/scan
 
 
