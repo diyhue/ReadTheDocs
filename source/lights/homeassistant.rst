@@ -10,6 +10,10 @@ For this to work you need to have a working Home Assistant setup with the Rest A
 Configuration
 -------------
 
+.. note::
+    Once you have completed the setup below you will need to search for lights in Hue Essentials/Hue App or you can navigate to http://diyhue_ip/scan
+
+
 You will need to start the bridge once (this will generate/update the config) and then you'll need to edit the ``config.json`` file.
 
 If you're using **docker** to run diyHue, make sure you **stop the container** before changing the config file.
