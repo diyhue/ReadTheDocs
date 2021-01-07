@@ -5,11 +5,11 @@ Additional Functions
     :maxdepth: 2
     :caption: Contents:
 
-    alarm
+    alexa
     sensors
     entertainment
     debug
     homekit
     domoticz
     CMDArgs
-    alexa
+    alarm
