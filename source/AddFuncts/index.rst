@@ -12,3 +12,4 @@ Additional Functions
     homekit
     domoticz
     CMDArgs
+    alexa
