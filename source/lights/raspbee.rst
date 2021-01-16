@@ -24,10 +24,34 @@ Deconz installation
 
 * Edit the Deconz systemd script to bind on port 8080: ``sudo nano /lib/systemd/system/deconz.service`` replace ``--http-port=80`` with ``--http-port=8080 --upnp=0 --ws-port=8081`` or you can use the following command:
 
-  sed -i 's/ --http-port=80$/ --http-port=8080 --ws-port=8081 --upnp=0/' /lib/systemd/system/deconz.service
+  ``sed -i 's/ --http-port=80$/ --http-port=8080 --ws-port=8081 --upnp=0/' /lib/systemd/system/deconz.service``
 
+**Docker:**
+
+* If you are using docker, you can run the container with the following command:
+
+ .. code-block:: none
+   :emphasize-lines: 4,6,7
+
+   docker run -d \
+       --name=deconz \
+       --net=host \
+       --restart=always \
+       -e DECONZ_WEB_PORT=8080 \
+       -e DECONZ_WS_PORT=8081 \
+       -v /etc/localtime:/etc/localtime:ro \
+       -v /opt/deconz:/root/.local/share/dresden-elektronik/deCONZ \
+       --device=/dev/ttyAMA0 \
+       marthoc/deconz
+
+* To swap Bluetooth to /dev/S0 (moving RaspBee to /dev/ttyAMA0), run the following command and then reboot:
+ .. code-block:: none
+
+   echo 'dtoverlay=pi3-miniuart-bt' | sudo tee -a /boot/config.txt
+ 
 * Start the Deconz service, browse to ``http://{hue emulator ip}:8080`` and add all zigbee devices.
   This is done by clicking "Open network" in settings and then reset the devices. Don't configure any device in deconz.
+  
 * Start hue emulator (you should see in the logs the import of all zigbee devices)
 * Click "Unlock Gateway" in the Deconz settings to allow hue emulator to register, then open ``http://{hue emulator ip}/deconz`` to automatically register the bridge emulator with Deconz.
   In order to configure IKEA switches you must first configure the rooms.
