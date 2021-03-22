@@ -56,3 +56,17 @@ My Google Home / Google Assistant doesn't find diyHue!
 
 Google Assistant uses the remote API to find your Hue bridge. The remote API is not supported by diyHue. At the moment it looks like it never will. However, don't despair. There is an option to get it to work. [Home Assistant](https://www.home-assistant.io/) is software used to provide a unified hub for all your smart devices. It has support for diyHue and Google Assistant, so you can import your diyHue lights into Home Assistant and use Google Assistant to control them via Home Assistant. There are plenty of instructions on the Home Assistant website however details on Phillips Hue with home assistant can be found [here](https://www.home-assistant.io/components/hue/) and details on Google Assistant [here](https://www.home-assistant.io/components/google_assistant/) If you need more help, ask on our Slack chat or on the Home Assistant forums.
 
+Philips Hue App complains about Bridge v1 detected and not supported anymore
+----------------------------------------------------------------------------
+The most common reason for this is because your diyHue Installation hasn't go created a valid certificate. 
+
+How to check this?
+
+Just type curl https://<diyHue Server IP-Adress>/api/nouser/config -v -k
+
+If this request is failing, your certificate is not valid.
+
+Here's how to solve this:
+
+1. Delete the cert.pem file in the mounted directory /mnt/hue-emulator/export/ 
+2. If you're using Docker, you maybe missed to start the Container with the correct IP and MAC-Adress (see Documentation). Stop and remove the container and start it with the correct parameters.
