@@ -20,11 +20,15 @@ To run the container with the host network mode::
     docker run -d --name diyHue --restart=always --network=host -e MAC=XX:XX:XX:XX:XX:XX -v /mnt/hue-emulator/export:/opt/hue-emulator/export diyhue/core:latest
     
 .. note::
-    When running with the bridge network mode you must provide the IP and MAC address of the host device. Four ports are also opened to the container. These port mappings must not be changed as the hue ecosystem expects to communicate over specific ports.
+    Edit -e MAC=XX:XX:XX:XX:XX:XX to your specific Interface Mac you are using to connect to your network! This has to be correct to generate a valid certificate for genuine Hue App connection
+
 
 To run the container with bridge network mode::
 
     docker run -d --name diyHue --restart=always --network=bridge -v /mnt/hue-emulator/export:/opt/hue-emulator/export -e MAC=XX:XX:XX:XX:XX:XX -e IP=XX.XX.XX.XX -p 80:80/tcp -p 443:443/tcp -p 1900:1900/udp -p 2100:2100/udp -p 1982:1982/udp diyhue/core:latest
+    
+.. note::
+    When running with the bridge network mode you must provide the IP and MAC address of the host device. Four ports are also opened to the container. These port mappings must not be changed as the hue ecosystem expects to communicate over specific ports.
 
 These commands will run the latest image available, however if you have automated updates enabled with a service such as `watchtower <https://github.com/v2tec/watchtower>`_, then using latest is not recommended. The images are automatically rebuilt upon a new commit to this repo. As such, larges changes could occur and updates will be frequent. Each image is also tagged with the commit hash. For example ``diyhue/core:391cc642072aac70d544fd428864f74bf9eaf636``. It is then suggested you use one of these images instead and manually update every so often.
 
