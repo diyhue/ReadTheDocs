@@ -50,6 +50,8 @@ Search for new Lights in your App.
 
 Enjoy
 
+Note: You need to use Chrome Browser or Edge
+
 
 Regular Way:
 
