@@ -18,7 +18,7 @@ Currently the docker image has been tested with x86 systems and ARMv7 systems (R
 To run the container with the host network mode::
 
     docker run -d --name diyHue --restart=always --network=host -e MAC=XX:XX:XX:XX:XX:XX -v /mnt/hue-emulator/export:/opt/hue-emulator/export diyhue/core:latest
-    
+
 .. note::
     Edit -e MAC=XX:XX:XX:XX:XX:XX to your specific Interface Mac you are using to connect to your network! This has to be correct to generate a valid certificate for genuine Hue App connection
 
@@ -26,7 +26,7 @@ To run the container with the host network mode::
 To run the container with bridge network mode::
 
     docker run -d --name diyHue --restart=always --network=bridge -v /mnt/hue-emulator/export:/opt/hue-emulator/export -e MAC=XX:XX:XX:XX:XX:XX -e IP=XX.XX.XX.XX -p 80:80/tcp -p 443:443/tcp -p 1900:1900/udp -p 2100:2100/udp -p 1982:1982/udp diyhue/core:latest
-    
+
 .. note::
     When running with the bridge network mode you must provide the IP and MAC address of the host device. Four ports are also opened to the container. These port mappings must not be changed as the hue ecosystem expects to communicate over specific ports.
 
@@ -67,13 +67,14 @@ Just run the following command to install::
 
     curl -fsSL https://get.diyhue.org -o install.sh
     sudo bash install.sh
-.. curl -s https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_install.sh | sudo bash /dev/stdin    
+.. curl -s https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/easy_install.sh | sudo bash /dev/stdin
 
-.. note:: 
-    Choose Branch to be installed: 
+.. note::
+    Choose Branch to be installed:
     Master (recommended for normal usage)
-    Dev (latest features and fixes - Work in Progress!)
-    
+    Dev (latest features and fixes)
+    Beta (Work in Progress - latest API implementation)
+
 
 
 Choose your Network Interface (if you have multiple)
