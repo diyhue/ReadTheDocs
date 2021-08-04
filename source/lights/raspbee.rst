@@ -22,9 +22,17 @@ Deconz installation
 * Execute raspi-config and turn off the serial login as this will enter in conflict with deconz (do not disable also the hardware serial port)
 * Follow the steps from here: https://github.com/dresden-elektronik/deconz-rest-plugin for the deconz.deb package download and installation (no need to install dev package or compile the code)
 
-* Edit the Deconz systemd script to bind on port 8080: ``sudo nano /lib/systemd/system/deconz.service`` replace ``--http-port=80`` with ``--http-port=8080 --upnp=0 --ws-port=8081`` or you can use the following command:
+* Override bind port of Deconz service to port 8080 in systemd unit file:
 
-  ``sed -i 's/ --http-port=80$/ --http-port=8080 --ws-port=8081 --upnp=0/' /lib/systemd/system/deconz.service``
+  * run ``sudo systemctl edit deconz.service``
+  * in opened editor put following file content and save file:
+     .. code-block:: none
+        :emphasize-lines: 3
+
+        [Service]
+        ExecStart=
+        ExecStart=/usr/bin/deCONZ -platform minimal --http-port=8080 --upnp=0 --ws-port=8081
+
 
 **Docker:**
 
