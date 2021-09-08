@@ -55,6 +55,26 @@ Alternatively, you may utilize the docker-compose file found in the .build direc
 
 The container will auto-start on host boot or a container crash.
 
+
+Beta install
+~~~~~~~~~~~~~~~~~
+
+Currently diyHue is under heavy development. As the Official API has changed and needs to be reverse engineered, this BETA release will incorporate the latest changes.
+In order to use the most recent official Hue APP you need to use this branch.
+
+Roadmap for this Beta:
+
+- Implement new API v2 -- In Progress
+- Redesign the Ui -- In Progress
+- Modular Code Structure -- In Progress
+- Integrate Protocols and Smarthome Systems ( e.g. Home Assistant, Yeeelight, Mi-Light etc) -- In Progress
+
+
+
+
+
+
+
 Host Install
 ------------
 
