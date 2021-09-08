@@ -69,8 +69,11 @@ Roadmap for this Beta:
 - Modular Code Structure -- In Progress
 - Integrate Protocols and Smarthome Systems ( e.g. Home Assistant, Yeeelight, Mi-Light etc) -- In Progress
 
+To run the beta container with the host network mode::
 
-
+    docker run -d --name diyHue-beta --restart=always --network=host -e MAC=XX:XX:XX:XX:XX:XX -v /mnt/hue-emulator/config:/opt/hue-emulator/config diyhue/core:beta
+    
+Change the ``MAC=XX:XX:XX:XX:XX:XX`` to your specific network interface MAC (use lowercase characters)
 
 
 
