@@ -68,5 +68,5 @@ If this request is failing, your certificate is not valid.
 
 Here's how to solve this:
 
-1. Delete the cert.pem file in the mounted directory /mnt/hue-emulator/export/ 
+1. Delete the cert.pem file in the mounted directory /mnt/hue-emulator/config/ 
 2. If you're using Docker, you maybe missed to start the Container with the correct IP and MAC-Adress (see Documentation). Stop and remove the container and start it with the correct parameters.
