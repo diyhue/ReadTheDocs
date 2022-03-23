@@ -59,22 +59,11 @@ The container will auto-start on host boot or a container crash.
 Beta install
 ~~~~~~~~~~~~~~~~~
 
-Currently diyHue is under heavy development. As the Official API has changed and needs to be reverse engineered, this BETA release will incorporate the latest changes.
-In order to use the most recent official Hue APP you need to use this branch.
+Startin from 2022/03/23 we merged all current development branches (Beta) into a stable "Master" release.
+Host and Docker install methods are updated and are now using the latest version of diyhue.
 
-Roadmap for this Beta:
-
-- Implement new API v2 -- In Progress
-- Redesign the Ui -- In Progress
-- Modular Code Structure -- In Progress
-- Integrate Protocols and Smarthome Systems ( e.g. Home Assistant, Yeeelight, Mi-Light etc) -- In Progress
-
-To run the beta container with the host network mode::
-
-    docker run -d --name diyHue-beta --restart=always --network=host -e MAC=XX:XX:XX:XX:XX:XX -v /mnt/hue-emulator/config:/opt/hue-emulator/config diyhue/core:beta
-    
-Change the ``MAC=XX:XX:XX:XX:XX:XX`` to your specific network interface MAC (use lowercase characters)
-
+.. note::
+    If you have currently a "old" diyhue image running (without the new UI) you have to start from scratch as the changes are huge and even config has a        complete new structure internally. We hope you enjoy the new Look and feel of diyhue and pardon the fact that you have to start over.
 
 
 
