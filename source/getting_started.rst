@@ -17,7 +17,7 @@ Currently the docker image has been tested with x86 systems and ARMv7 systems (R
 
 To run the container with the host network mode::
 
-    docker run -d --name diyHue --restart=always --network=host -e MAC=XX:XX:XX:XX:XX:XX -v /mnt/hue-emulator/export:/opt/hue-emulator/export diyhue/core:latest
+    docker run -d --name diyHue --restart=always --network=host -e MAC=XX:XX:XX:XX:XX:XX -v /mnt/hue-emulator/config:/opt/hue-emulator/config diyhue/core:latest
 
 .. note::
     Edit -e MAC=XX:XX:XX:XX:XX:XX to your specific Interface Mac you are using to connect to your network! This has to be correct to generate a valid certificate for genuine Hue App connection
@@ -25,7 +25,7 @@ To run the container with the host network mode::
 
 To run the container with bridge network mode::
 
-    docker run -d --name diyHue --restart=always --network=bridge -v /mnt/hue-emulator/export:/opt/hue-emulator/export -e MAC=XX:XX:XX:XX:XX:XX -e IP=XX.XX.XX.XX -p 80:80/tcp -p 443:443/tcp -p 1900:1900/udp -p 2100:2100/udp -p 1982:1982/udp diyhue/core:latest
+    docker run -d --name diyHue --restart=always --network=bridge -v /mnt/hue-emulator/config:/opt/hue-emulator/config -e MAC=XX:XX:XX:XX:XX:XX -e IP=XX.XX.XX.XX -p 80:80/tcp -p 443:443/tcp -p 1900:1900/udp -p 2100:2100/udp -p 1982:1982/udp diyhue/core:latest
 
 .. note::
     When running with the bridge network mode you must provide the IP and MAC address of the host device. Four ports are also opened to the container. These port mappings must not be changed as the hue ecosystem expects to communicate over specific ports.
@@ -39,7 +39,7 @@ Alternative tags are also available. Images are tagged as follows:
 * ``runid`` : This can come from any branch. The run id is determined from our `Github Actions page <https://github.com/diyhue/diyHue/actions>`_ which will indicate the commit, branch, and run id of this image.
 * ``latest`` : This will always be the latest update from the ``master`` branch.
 
-The mount directory ``/mnt/hue-emulator/export/`` can be changed to any directory you wish. Backups of the config.json and cert.pem are saved here when changes are made to these files. They are then restored upon container reboot. If you need to make manual changes to these files, do so with the files mounted on the host (rather than the files in the container) and then restart the container to import your changes. To perform a manual export at any time, visit ``http://{emualtor ip}/save``. If there are no files in the mounted directory then they will be regenerated at container start.
+The mount directory ``/mnt/hue-emulator/config/`` can be changed to any directory you wish. Backups of the config.json and cert.pem are saved here when changes are made to these files. They are then restored upon container reboot. If you need to make manual changes to these files, do so with the files mounted on the host (rather than the files in the container) and then restart the container to import your changes. To perform a manual export at any time, visit ``http://{emualtor ip}/save``. If there are no files in the mounted directory then they will be regenerated at container start.
 
 To update the container:
 
