@@ -83,7 +83,7 @@ Start docker image
 
 Once you made your changes and build the image, you'll need to run the following command to run your new image in debug mode.
 Before running change the values to your needs, so make sure you set the ``MAC`` variable to your used network card and the ``IP`` to the IP of your machine.
-Also change the folder ``/Users/you/diyhue/export`` to your own configuration folder.
+Also change the folder ``/Users/you/diyhue/config`` to your own configuration folder.
 
 .. code-block:: Bash
 
@@ -92,13 +92,13 @@ Also change the folder ``/Users/you/diyhue/export`` to your own configuration fo
 
     # Create new container
     docker run -d --name "diyhue-dev" --restart="unless-stopped" --network="bridge" \
-        -v '/Users/you/diyhue/export':'/opt/hue-emulator/export/':'rw' \
+        -v '/Users/you/diyhue/config':'/opt/hue-emulator/config/':'rw' \
         -e MAC='f4:0f:05:01:01:01' \
         -e IP='192.168.x.x' \
         -e disable-online-discover='true' \
         -e DEBUG='true' \
         -p 80:80/tcp -p 443:443/tcp -p 1900:1900/udp -p 2100:2100/udp -p 1982:1982/udp \
-        diyhue:development
+        diyhue:dev
 
     # Open logging
     docker logs -f diyhue-dev
@@ -114,7 +114,7 @@ Caution, the first time it has to download a lot of packages for 3 platforms. Th
 
     docker buildx build \
       --platform linux/amd64,linux/arm64,linux/arm/v7 \
-      -t diyhue/core:development \
+      -t diyhue/core:dev \
       -f .build/Dockerfile \
       --push .
 
