@@ -67,6 +67,87 @@ Host and Docker install methods are updated and are now using the latest version
 
 
 
+Home Assistant Addon
+--------------
+
+Installation
+
+NOTE: Installation will take some Minutes! Be Patience =)
+
+The installation process is pretty easy and straight forward, like for any other third-party Home Assistang Add-on.
+
+Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage add-on repositories**:
+
+    https://github.com/diyhue/hassio-addon
+
+
+**Important** After Install & before starting diyHue, edit the Config according to the Docs below. If you start diyHue with the default MAC or a wrong MAC the Certificate for Linking Official Apps is generated wrong and you get a error upon linking.
+In that case:
+
+- Stop diyHue
+- delete cert.pem in _/config/diyhue_ dir
+- edit mac
+- restart diyHue
+
+## Configuration
+
+**Note**: Remember to restart the add-on when the configuration is changed.
+
+Example add-on configuration:
+
+```yaml
+config_path: /config/diyhue
+mac: "XX:XX:XX:XX:XX:XX"
+debug: true
+no-serve-https: false
+deconz_ip: 192.168.0.0
+```
+
+**Note**: This is just an example, don't copy and paste it! Create your own!
+
+*Option:* `config_path`
+
+The `config_path` option controls the folder where your diyHue config gets stored. It has to start with **/config** and i highly recommend to name the folder **/config/diyhue**.
+
+*Option:* `mac`
+
+The mac-address of your interface (device) you use to connect to you network.
+**You can not fake a Mac here, since it is used for original software (APP) to authenticate the Emulated Bridge!**
+
+**Note**: You have to stick to this format `XX:XX:XX:XX:XX:XX`.
+
+*Option:* `debug`
+
+If you turn the debug option to true you will get extended logs in the output section of the add-on.
+
+Valid values: `false`, `true`.
+
+*Option:* `no-serve-https`
+
+You have to set this value to true if you are running hassio under https. Hassio doesn't allow the usage of SSL on the websocket at the moment. So you have to force diyhue to not use https.
+
+Valid values: `false`, `true`.
+
+### Option: `deconz_ip`
+
+Here you can enter the IP-Address of your Deconz instance.
+
+
+## Sidepanel Link
+
+Add the following to your HA _configuration.yaml_ to get a Navigation Link in the Sidepanel
+
+Config::
+    panel_iframe:
+        diyhue:
+            title: "diyHue"
+            icon: mdi:home-lightbulb
+            url: "http://homeassistant:80"
+
+ 
+
+
+
 Host Install
 ------------
 
