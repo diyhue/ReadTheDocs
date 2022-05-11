@@ -81,7 +81,9 @@ Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage ad
     https://github.com/diyhue/hassio-addon
 
 
-**Important** After Install & before starting diyHue, edit the Config according to the Docs below. If you start diyHue with the default MAC or a wrong MAC the Certificate for Linking Official Apps is generated wrong and you get a error upon linking.
+.. note::
+    After Install & before starting diyHue, edit the Config according to the Docs below. If you start diyHue with the default MAC or a wrong MAC the Certificate for Linking    Official Apps is generated wrong and you get a error upon linking.
+
 In that case:
 
 - Stop diyHue
@@ -128,12 +130,12 @@ You have to set this value to true if you are running hassio under https. Hassio
 
 Valid values: `false`, `true`.
 
-### Option: `deconz_ip`
+*Option:* `deconz_ip`
 
 Here you can enter the IP-Address of your Deconz instance.
 
 
-## Sidepanel Link
+Sidepanel Link
 
 Add the following to your HA _configuration.yaml_ to get a Navigation Link in the Sidepanel
 
