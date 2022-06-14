@@ -3,7 +3,7 @@ Home Assistant
 
 diyHue has support for lights that are controlled via `Home Assistant <https://www.home-assistant.io/>`_.
 
-You setup the lights you wish to include/exclude in Home Assistant. You then search for lights (in the app) and thelights will be added.
+You setup the lights you wish to include/exclude in Home Assistant. You then search for lights (in the app) and the lights will be added.
 
 For this to work you need to have a working Home Assistant setup with the Rest API enabled. This is out of scope of this documentation - please check the Home Assistant documentation.
 
