@@ -13,7 +13,7 @@ To pair a new device to diyHue, first login in the web interface and click the `
 Configuration Files
 ------------------
 
-The entire configuration is saved in dedicated yaml files. Changes to the bridge are saved when a new object is created or every hour automatically. In case of state change of lights or sensors the configuration is not saved to avoid extensive writes to the SD card on Raspberry Pi's. If you want to save the configuration manually, you can do so by accessing ``http://{emualtor ip}/save``. If you want to manually edit the configurations file to change any kind of resource, I recommend backing up the files first. In case the configurations file are corrupted, you can look for backups that are done automatically every Sunday night.
+The entire configuration is saved in dedicated yaml files. Changes to the bridge are saved when a new object is created or every hour automatically. In case of state change of lights or sensors the configuration is not saved to avoid extensive writes to the SD card on Raspberry Pi's. If you want to save the configuration manually, you can do so by accessing ``http://{emulator ip}/save``. If you want to manually edit the configurations file to change any kind of resource, I recommend backing up the files first. In case the configurations file are corrupted, you can look for backups that are done automatically every Sunday night.
 
 Adding lights
 -------------
