@@ -40,7 +40,7 @@ Now fill in the correct values:
 * ``homeAssistantIp``: set to the IP address of your Home Assistant install
 * ``homeAssistantPort``: By default this is 8123 but change it here if you are running on a different port.
 * ``homeAssistantToken``: This is a Home Assistant long lived access token - details are on the `Home Assistant website <https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token>`_ on how to create one
-* ``homeAssistantIncludeByDefault``: If set to **"true"** all lights from Hoem Assistant will be included unless you explicity exclude them. If you don't want all the lights in Home Assistant to be included then set this to **"false"** and explicity include the lights you want to use in diyhue
+* ``homeAssistantIncludeByDefault``: If set to **"true"** all lights from Home Assistant will be included unless you explicity exclude them. If you don't want all the lights in Home Assistant to be included then set this to **"false"** and explicity include the lights you want to use in diyhue
 
 Most of the other lights that diyhue supports could also be added directly to Home Assistant. 
 If you are using the Home Assistant integration you may wish to disable the other integrations so that they don't appear in diyHue directly (e.g. Shelly, Tasmota) if you plan to expose these devices by Home Assistant. 
