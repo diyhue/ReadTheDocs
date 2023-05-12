@@ -48,7 +48,7 @@ How is working
 
 Exactly like the switches, the sensor will be registered on power on with a GET request: ``http://{bridgeIP}/switch?mac=xx:xx:xx:xx:xx:xx&devicetype=ZLLPresence`` and configuration can then be done from the Hue application.
 The ESP8266 will wake up from deep sleep on every PIR positive signal on the GPIO5 pin and every 20 minutes to send the light sensor data.
-Request example: ``http://{bridgeIP}/switch?mac=xx:xx:xx:xx:xx:xx&lightlevel=46900&dark=false&daylight=true&presence=true&temperature=23``
+Request example: ``http://{bridgeIP}/switch?mac=xx:xx:xx:xx:xx:xx&lightlevel=46900&dark=false&daylight=true&presence=true&temperature=2300``
 It is important to choose a low power PIR that can run on batteries for many months.
 The PIR used in my example is an HC-SR501, that is very common in DIY projects.
 To increase the battery life I removed the 3.3V voltage regulator as this is not needed with batteries.
