@@ -8,7 +8,7 @@ The second method is to use the Raspbee module that offers the flowing advantage
 * Tradfri Motion Sensors are emulated as Hue Motion Sensor giving the possibility to choose different scenes based on the time (ex: max brightness between 08:00 - 23:00 and Nightlight scene between 23:00 and 08:00) Also the light will be dimmed for 30 seconds before being turned off and you can configure from Hue application how much time the light will stay on after motion was triggered.
 * The Tradfri Remote can be emulated as a Hue Dimmer Switch or Hue Tap Switch that can apply color scenes.
 
-Import Trafri Gateway Lights
+Import Tradfri Gateway Lights
 ----------------------------
 
 Open ``http://{bridgeIP}/tradfri`` Type in the Ikea bridge IP and security key and click "Save".
