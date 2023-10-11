@@ -17,7 +17,7 @@ Welcome to diyHue's documentation!
     uninstall
     faq
     development
-    beta
+	
 .. refs/modules
 
 

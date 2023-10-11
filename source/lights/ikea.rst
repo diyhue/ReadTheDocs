@@ -9,7 +9,7 @@ The second method is to use the Raspbee module that offers the flowing advantage
 * The Tradfri Remote can be emulated as a Hue Dimmer Switch or Hue Tap Switch that can apply color scenes.
 
 Import Tradfri Gateway Lights
-----------------------------
+-----------------------------
 
 Open ``http://{bridgeIP}/tradfri`` Type in the Ikea bridge IP and security key and click "Save".
 You should then see all the lights paired with Tradfri bridge in Hue application.

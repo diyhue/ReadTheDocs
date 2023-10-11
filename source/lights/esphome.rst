@@ -14,7 +14,7 @@ Supported modes of operation are:
 To add the device to diyHue, simply configure it using the information below and search for lights. The devices should be automatically imported into diyHue with the correct information.
 
 General Configuration
----------
+---------------------
 
 All devices must have a text sensor:
 
@@ -45,7 +45,7 @@ Configurable options:
 The alert switch will be called when the bulb is requested to be located. As it stands now, it is not ideal as it does not return the light to the original state.
 
 Entertainment Mode
----------
+------------------
 
 The configuration for entertainment mode differs from the configuration here which does not include entertainment mode. The full code can be found in the ``Lights`` repository. The primary differences are:
 
@@ -90,7 +90,7 @@ Toggle
 Include a toggle_led light to mark the light as a Toggle light.
 
 Sample Configuration
----------
+--------------------
 
 This is a sample configuration for a RGBW light, namely the `Feit Electric Smart Bulb <https://templates.blakadder.com/feit_electric-OM60RGBWCAAG.html>`_. This configuration can be modified using the above information to integrate practically any type of light ESPHome supports with diyHue.
 
