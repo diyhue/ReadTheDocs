@@ -142,14 +142,10 @@ Add the following to your HA _configuration.yaml_ to get a Navigation Link in th
 .. code-block:: yaml
     
 	panel_iframe:
-        diyhue:
-            title: "diyHue"
-            icon: mdi:home-lightbulb
-            url: "http://homeassistant:80"
-
- 
-
-
+	  diyhue:
+	    title: "diyHue"
+	    icon: mdi:home-lightbulb
+	    url: "http://homeassistant:80"
 
 Host Install
 ------------
