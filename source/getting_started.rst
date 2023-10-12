@@ -68,7 +68,7 @@ Host and Docker install methods are updated and are now using the latest version
 
 
 Home Assistant Addon
---------------
+--------------------
 
 Installation
 
@@ -87,7 +87,7 @@ Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage ad
 In that case:
 
 - Stop diyHue
-- delete cert.pem in _/config/diyhue_ dir
+- delete cert.pem in /config/diyhue dir
 - edit mac
 - restart diyHue
 
@@ -140,15 +140,12 @@ Sidepanel Link
 Add the following to your HA _configuration.yaml_ to get a Navigation Link in the Sidepanel
 
 .. code-block:: yaml
-    panel_iframe:
-        diyhue:
-            title: "diyHue"
-            icon: mdi:home-lightbulb
-            url: "http://homeassistant:80"
-
- 
-
-
+    
+	panel_iframe:
+	  diyhue:
+	    title: "diyHue"
+	    icon: mdi:home-lightbulb
+	    url: "http://homeassistant:80"
 
 Host Install
 ------------
