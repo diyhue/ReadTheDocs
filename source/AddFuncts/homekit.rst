@@ -41,7 +41,7 @@ Follow the below instuctions to setup diyHue to work with Home Kit
     [2/3/2019, 9:24:33 AM] [Hue] RpiHue: bridge error 101: link button not pressed
     [2/3/2019, 9:24:33 AM] [Hue] RpiHue: press link button on the bridge to create a user
 
-5. Go to diyhue webpage and simulate the link button pressed (http://{IP_ADDRESS}/hue/linkbutton)::
+5. Go to diyhue webpage and simulate the link button pressed (http://{IP_ADDRESS}/#linkbutton)::
 
     [2/3/2019, 9:24:48 AM] [Hue] RpiHue: created user - please edit config.json and restart homebridge
     "platforms": [
