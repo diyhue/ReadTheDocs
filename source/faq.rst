@@ -30,7 +30,7 @@ Unable to Connect - diyHue Bridge is detected but i can´t pair!
 ---------------------------------------------------------------
 
 In order to connect with diyHue, you need to pair the APP with the Bridge Emulator.
-Press Activate Button of diyHue found here `http://{IP_ADDRESS}/hue/linkbutton` with default credentials `Hue:Hue`
+Press Link APP Button of diyHue found here `http://{IP_ADDRESS}/#linkbutton`.
 
 If Hue Essentials app (or other 3rd party hue apps) can pair with the bridge emulator but official Hue app not most likely you have a [bad https certificate](https://diyhue.readthedocs.io/en/latest/AddFuncts/debug.html#https-certificate-check)
 

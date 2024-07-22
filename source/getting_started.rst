@@ -13,7 +13,15 @@ It is best to have at least one compatible light ready in order to setup and tes
 Docker Install
 --------------
 
-Currently the docker image has been tested with x86 systems and ARMv7 systems (Raspberry Pi 2 and later). Currently the ARM image has only been tested with a Raspberry Pi 3b+ If you have other ARM based devices and can test the image, please let us know on our Slack chat or in an issue. The images can be run with both host and bridge network modes. I recommend using the host network mode for ease, however this will give you less control over your docker networks. Using bridge mode allows you to control the traffic in and out of the container but requires more options to setup.
+Currently the docker image has been tested with x86 systems and ARMv7 systems (Raspberry Pi 2 and later). Currently the ARM image has only been tested with a Raspberry Pi 3b, 3b+, 4b and 5 If you have other ARM based devices and can test the image, please let us know on our Slack chat or in an issue. The images can be run with both host and bridge network modes. I recommend using the host network mode for ease, however this will give you less control over your docker networks. Using bridge mode allows you to control the traffic in and out of the container but requires more options to setup.
+
+Install docker + docker compose on raspberry(this might take some time)::
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo apt-get -y install libffi-dev libssl-dev python3-dev python3 python3-pip
+
+To find the IP and MAC of your raspberry in terminal type ``ifconfig``.
+Find your active connection and next to ``ether`` is your MAC address and next to ``inet`` is your IP-Address.
 
 To run the container with the host network mode::
 
@@ -51,7 +59,12 @@ To update the container:
 
 * Recreate the container using the commands above, changing the tag if necessary.
 
-Alternatively, you may utilize the docker-compose file found in the .build directory of the repository to setup diyHue. Once copied, it may be started using ``docker-compose up`` and stopped using ``docker-compose down``. Updates can be achieved by changing the tag in the configuration and restarting ``docker-compose restart``.
+Alternatively, you may utilize the `docker-compose <https://github.com/diyhue/diyHue/blob/master/.build/docker-compose.yml>`_ file found in the .build directory of the repository to setup diyHue.
+In this file change the values to your setup.(IP, MAC, network mode, time zone)
+Place this file in a folder where you can find it and this is the only docker compose file.
+Once copied and in the folder where the file is located, it may be started using ``sudo docker compose up -d`` and stopped using ``sudo docker compose down``.
+For older docker compose versions use ``sudo docker-compose up -d`` and ``sudo docker-compose down``
+Updates can be achieved by changing the tag in the configuration and restarting ``sudo docker compose restart`` or ``sudo docker-compose restart``.
 
 The container will auto-start on host boot or a container crash.
 
