@@ -5,6 +5,17 @@ Enable debug mode
 
 Host install
 ------------
+To see the status of the service enter the following command::
+    
+    sudo systemctl status hue-emulator
+
+The easyest way to see the logs is to enter the following command::
+
+    journalctl -o cat -xefu hue-emulator.service -n 100
+
+This will show the lasst 100 messages and follow the logs.
+
+The other method have some more steps.
 1. Stop the hue-emulator service::
 
     sudo systemctl stop hue-emulator
@@ -23,6 +34,23 @@ Docker install
 Add the following environment variable to your docker run command. This can be set to `true` or `false` to turn debug on or off. ::
 
     -e "DEBUG=true"
+
+Docker compose
+--------------
+
+Add the following environment variable to your docker compose file. This can be set to `true` or `false` to turn debug on or off. ::
+
+    DEBUG: true
+
+OpenWrt Install
+---------------
+
+See the getting started page how to add logs to the LuCi.
+
+Home Assistant Addon
+--------------------
+
+Enable debug in the configuration screen of the addon page.
 
 HTTPS certificate check
 -----------------------

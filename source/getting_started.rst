@@ -15,7 +15,10 @@ Docker Install
 
 Currently the docker image has been tested with x86 systems and ARMv7 systems (Raspberry Pi 2 and later). Currently the ARM image has only been tested with a Raspberry Pi 3b, 3b+, 4b and 5 If you have other ARM based devices and can test the image, please let us know on our Slack chat or in an issue. The images can be run with both host and bridge network modes. I recommend using the host network mode for ease, however this will give you less control over your docker networks. Using bridge mode allows you to control the traffic in and out of the container but requires more options to setup.
 
-Install docker + docker compose on raspberry(this might take some time)::
+Install docker + docker compose on raspberry(this might take some time)
+
+.. code-block:: bash
+
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
     sudo apt-get -y install libffi-dev libssl-dev python3-dev python3 python3-pip
@@ -58,6 +61,9 @@ To update the container:
     docker rm -f diyHue
 
 * Recreate the container using the commands above, changing the tag if necessary.
+
+Docker compose
+~~~~~~~~~~~~~~
 
 Alternatively, you may utilize the `docker-compose <https://github.com/diyhue/diyHue/blob/master/.build/docker-compose.yml>`_ file found in the .build directory of the repository to setup diyHue.
 In this file change the values to your setup.(IP, MAC, network mode, time zone)
@@ -211,7 +217,7 @@ Manual install
     StartLimitBurst=5
 
     WorkingDirectory=/home/pi
-    ExecStart=/home/pi/HueEmulator.py
+    ExecStart=/home/pi/HueEmulator.py --debug --BRANCH=master
 
     [Install]
     WantedBy=multi-user.target
@@ -228,48 +234,69 @@ you can check the service status with ``sudo systemctl status hue-emulator.servi
 
 OpenWrt Install
 ---------------
-
-First, run following command::
-
-    opkg update && opkg install wget ca-bundle nano
-
-You will need to change to the temporary directory::
-
-    cd /tmp
-
-It is also necessary to change 3 lines of code from port 80 to 82::
-
-    nano /etc/config/uhttpd
-
-Change... ::
-
-    list listen_http	0.0.0.0:80
-    list listen_http	[::]:80
-
-to... ::
-
-    list listen_http	0.0.0.0:82
-    list listen_http	[::]:82
-
-
-and also::
-
-    nano /etc/lighttpd/lighttpd.conf
-
-Change this... ::
-
-    server.port = 80
-
-to this... ::
-
-    server.port = 82
-
-
-Finally, run the following command to run the install::
+Run the following command to run the install::
 
     wget --no-check-certificate https://raw.githubusercontent.com/diyhue/diyHue/master/BridgeEmulator/install_openwrt.sh && sh install_openwrt.sh
 
-The installation in OpenWrt requires a change to the configuration file for the GUI of luci since it runs on port 80 by default, and diyHue must run on port 80, so it was changed to port 82 following the instructions above. Therefore to enter the OpenWrt configuration you must access: ``http://192.168.8.1:82/cgi-bin/luci`` instead.
+The installation in OpenWrt requires a change to the configuration file for the GUI of luci since it runs on port 80 by default, and diyHue must run on port 80, so it was changed to port 82 following the instructions in the install_openwrt.sh. Therefore to enter the OpenWrt configuration you must access: ``http://192.168.8.1:82/cgi-bin/luci`` instead.
+It is posible to add the log of diyHue as a tab to LuCi system log.
+Edit/add the folowing files::
+
+    nano /usr/share/luci/menu.d/luci-mod-status.json
+
+Find ``"admin/status/logs/dmesg"``
+After this add::
+
+    "admin/status/logs/diyhue": {
+		"title": "DiyHue Log",
+		"order": 3,
+		"action": {
+			"type": "view",
+			"path": "status/diyhue"
+		}
+	},
+
+Edit::
+
+    nano /usr/share/rpcd/acl.d/luci-mod-status.json
+
+Find ``"luci-mod-status-logs":``
+Add this to ``"file"``::
+
+    "/opt/hue-emulator/diyhue.log": [ "exec", "lines", "read" ]
+
+it should look something like this::
+
+    "luci-mod-status-logs": {
+		"description": "Grant access to system logs",
+		"read": {
+			"cgi-io": [ "exec" ],
+			"file": {
+				"/bin/dmesg -r": [ "exec" ],
+				"/usr/libexec/syslog-wrapper": [ "exec" ],
+				"/opt/hue-emulator/diyhue.log": [ "exec", "lines", "read" ]
+			},
+			"ubus": {
+				"file": [ "stat" ]
+			}
+		}
+	},
+
+Finaly make a file called ``diyhue.js`` with::
+
+    nano /www/luci-static/resources/view/status/diyhue.js
+
+With the contents of https://raw.githubusercontent.com/diyhue/ReadTheDocs/refs/heads/master/diyhue.js
+
+Example of /usr/share/luci/menu.d/luci-mod-status.json: https://raw.githubusercontent.com/diyhue/ReadTheDocs/refs/heads/master/root-usr-share-luci-menu.d-luci-mod-status.json
+
+Example of /usr/share/rpcd/acl.d/luci-mod-status.json: https://raw.githubusercontent.com/diyhue/ReadTheDocs/refs/heads/master/root-usr-share-rpcd-acl.d-luci-mod-status.json
+
+Now do a reboot::
+
+    reboot now
+
+.. figure:: /_static/images/openwrt_log.png
 
 OpenWrt Update
 ---------------

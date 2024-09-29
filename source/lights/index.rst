@@ -5,6 +5,7 @@ Lights
     :maxdepth: 2
     :caption: Contents:
 
+    lightTypes
     diylights
     ikea
     milight

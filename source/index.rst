@@ -5,6 +5,7 @@
 
 Welcome to diyHue's documentation!
 =============================================
+The docs are work in process.
 
 .. toctree::
     :maxdepth: 3
