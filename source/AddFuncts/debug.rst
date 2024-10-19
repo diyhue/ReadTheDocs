@@ -16,6 +16,7 @@ The easyest way to see the logs is to enter the following command::
 This will show the lasst 100 messages and follow the logs.
 
 The other method have some more steps.
+
 1. Stop the hue-emulator service::
 
     sudo systemctl stop hue-emulator
