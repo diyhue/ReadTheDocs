@@ -46,6 +46,10 @@ To find the capabilities of your light please look `here <https://zigbee.blakadd
 
     capabilities: on, bri, ct
 
+* LLC010 Hue Iris
+
+    capabilities: on, bri, xy
+
 * LCX002 Hue Gradient TV Lightstrip (only use with native gadient sketch)
 
     capabilities: on, bri, hue, sat, xy, ct
