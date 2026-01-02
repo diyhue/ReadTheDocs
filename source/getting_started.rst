@@ -93,7 +93,7 @@ Installation
 
 NOTE: Installation will take some Minutes! Be Patience =)
 
-The installation process is pretty easy and straight forward, like for any other third-party Home Assistang Add-on.
+The installation process is pretty easy and straight forward, like for any other third-party Home Assistant Add-on.
 
 Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage add-on repositories**:
 
@@ -110,19 +110,20 @@ In that case:
 - edit mac
 - restart diyHue
 
-## Configuration
+Configuration
+~~~~~~~~~~~~~
 
 **Note**: Remember to restart the add-on when the configuration is changed.
 
 Example add-on configuration:
 
-```yaml
-config_path: /config/diyhue
-mac: "XX:XX:XX:XX:XX:XX"
-debug: true
-no-serve-https: false
-deconz_ip: 192.168.0.0
-```
+.. code-block:: yaml
+
+    config_path: /config/diyhue
+    mac: "XX:XX:XX:XX:XX:XX"
+    debug: true
+    no-serve-https: false
+    deconz_ip: 192.168.0.0
 
 **Note**: This is just an example, don't copy and paste it! Create your own!
 
