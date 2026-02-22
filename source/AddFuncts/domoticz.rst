@@ -2,7 +2,7 @@ Domoticz
 ========
 
 diy-hue includes native support for Domoticz lights/switches. 
-As there is no discover process provided by domotics, they must be added manually into ''config.json''.
+As there is no discover process provided by Domoticz, they must be added manually into ''config.json''.
 
 Add a new light(s)
 -------------------
