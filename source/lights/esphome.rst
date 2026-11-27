@@ -28,12 +28,17 @@ All devices must have a text sensor:
         char response[100];
         memset( response, 0, 100 );
         strcat( response, "esphome_diyhue_light;");
-        strcat( response, WiFi.macAddress().c_str());
+        strcat( response, id(wifi_info_mac_address).state.c_str());
         strcat( response, ";");
         strcat( response, App.get_name().c_str());
         strcat( response, ";CT_BOOST;RGB_BOOST" ); // ;CT_BOOST;RGB_BOOST values go here; Replace with 0 to disable
         return { response };
       update_interval: 24h
+
+    - platform: wifi_info
+      mac_address:
+        name: MAC Address
+        id: wifi_info_mac_address
 
 Configurable options:
 
@@ -51,6 +56,7 @@ The configuration for entertainment mode differs from the configuration here whi
 
 .. code-block:: YAML
 
+  NOTE the method is no longer supported by the current ESPHome version
   includes:
     - diyhueasyncudp.h
   libraries:
@@ -176,12 +182,17 @@ This is a sample configuration for a RGBW light, namely the `Feit Electric Smart
         char response[100];
         memset( response, 0, 100 );
         strcat( response, "esphome_diyhue_light;");
-        strcat( response, WiFi.macAddress().c_str());
+        strcat( response, id(wifi_info_mac_address).state.c_str());
         strcat( response, ";");
         strcat( response, App.get_name().c_str());
         strcat( response, ";CT_BOOST;RGB_BOOST" ); // ;CT_BOOST;RGB_BOOST values go here; Replace with 0 to disable
         return { response };
       update_interval: 24h
+
+    - platform: wifi_info
+      mac_address:
+        name: MAC Address
+        id: wifi_info_mac_address
       
   switch:
     - platform: template
